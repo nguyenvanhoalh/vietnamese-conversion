@@ -1,0 +1,14 @@
+export declare function toUnicode(text: string, currentCharset: string): string;
+export declare function toTCVN3(text: string, currentCharset: string): string;
+export declare function toVNI(text: string, currentCharset: string): string;
+export declare function toVIQR(text: string, currentCharset: string): string;
+export declare function toVISCII(text: string, currentCharset: string): string;
+export declare function toVPS(text: string, currentCharset: string): string;
+export declare function toBKHCM2(text: string, currentCharset: string): string;
+export declare function toBKHCM1(text: string, currentCharset: string): string;
+export declare function toVIETWAREX(text: string, currentCharset: string): string;
+export declare function toVIETWAREF(text: string, currentCharset: string): string;
+export declare function toUTF8(text: string, currentCharset: string): string;
+export declare function toNCRDECIMAL(text: string, currentCharset: string): string;
+export declare function toNCRHEX(text: string, currentCharset: string): string;
+export declare function toWINDOWS1258(text: string, currentCharset: string): string;

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+    <div class="form-group">
+      <label for="Source">Mã nguồn</label>
+      <textarea name="Source" id="Source" cols="30" rows="10" class="form-control"></textarea>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <div class="form-group">
+          <label for="slFromCharset">Nguồn</label>
+          <select name="slFromCharset" id="slFromCharset" class="form-control">
+            <option value="unicode">unicode</option>
+            <option value="tcvn3">tcvn3</option>
+            <option value="vni">vni</option>
+            <option value="viqr">viqr</option>
+            <option value="viscii">viscii</option>
+            <option value="vps">vps</option>
+            <option value="bkhcm2">bkhcm2</option>
+            <option value="bkhcm1">bkhcm1</option>
+            <option value="vietwarex">vietwarex</option>
+            <option value="vietwaref">vietwaref</option>
+            <option value="utf8">utf8</option>
+            <option value="ncrdecimal">ncrdecimal</option>
+            <option value="ncrhex">ncrhex</option>
+            <option value="windows1258">windows1258</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="slToCharset">Đích</label>
+          <select name="slToCharset" id="slToCharset" class="form-control">
+            <option value="unicode">unicode</option>
+            <option value="tcvn3">tcvn3 ok</option>
+            <option value="vni">vni ok</option>
+            <option value="viqr">viqr ok</option>
+            <option value="viscii">viscii - lỗi chữ ở</option>
+            <option value="vps">vps ok</option>
+            <option value="bkhcm2">bkhcm2 ok</option>
+            <option value="bkhcm1">bkhcm1 ok</option>
+            <option value="vietwarex">vietwarex ok</option>
+            <option value="vietwaref">vietwaref ok</option>
+            <option value="utf8">utf8 khả năng sai</option>
+            <option value="ncrdecimal">ncrdecimal ok</option>
+            <option value="ncrhex">ncrhex ok</option>
+            <option value="windows1258">windows1258 ok</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="Source">Kết quả chuyển mã</label>
+      <textarea name="Dest" id="Dest" cols="30" rows="10" class="form-control"></textarea>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="ChuyenMaTiengViet.js"></script>
+  <script>
+    $(document).on('change input', '#slFromCharset, #slToCharset, #Source', function () {
+      var fromCharset = $('#slFromCharset').val();
+      var toCharset = $('#slToCharset').val();
+      var sourceText = $('#Source').val();
+
+      const conversion = new chuyenMaTiengViet.VietnameseConversion(sourceText, fromCharset);
+
+      $('#Dest').val(conversion.toCharset(toCharset))
+    });
+  </script>
+</body>
+
+</html>
